@@ -32,78 +32,78 @@ class BagistoDelhiveryController extends Controller
             $data = $delhiveryApi->trackAWB($request->awbCode);
             
 
-            $data = [
-            "ShipmentData" => [
-                    [
-                        "Shipment" => [
-                        "AWB" => "83750410000022", 
-                        "CODAmount" => 0, 
-                        "ChargedWeight" => null, 
-                        "Consignee" => [
-                            "Address1" => [
-                            ], 
-                            "Address2" => [
-                                ], 
-                            "Address3" => "", 
-                            "City" => "New Delhi", 
-                            "Country" => "India", 
-                            "Name" => "John Doe", 
-                            "PinCode" => 110034, 
-                            "State" => "", 
-                            "Telephone1" => "", 
-                            "Telephone2" => "" 
-                        ], 
-                        "DeliveryDate" => null, 
-                        "DestRecieveDate" => null, 
-                        "Destination" => "New Delhi", 
-                        "DispatchCount" => 0, 
-                        "Ewaybill" => [
-                                    ], 
-                        "ExpectedDeliveryDate" => null, 
-                        "Extras" => "", 
-                        "FirstAttemptDate" => null, 
-                        "InvoiceAmount" => 0, 
-                        "OrderType" => "Pre-paid", 
-                        "Origin" => "Kirtinagar_PC (DELHI)", 
-                        "OriginRecieveDate" => null, 
-                        "OutDestinationDate" => null, 
-                        "PickUpDate" => "2024-07-03T11:05:29.366", 
-                        "PickedupDate" => null, 
-                        "PickupLocation" => "Delhi", 
-                        "PromisedDeliveryDate" => null, 
-                        "Quantity" => "", 
-                        "RTOStartedDate" => null, 
-                        "ReferenceNo" => "12345t", 
-                        "ReturnPromisedDeliveryDate" => null, 
-                        "ReturnedDate" => null, 
-                        "ReverseInTransit" => false, 
-                        "Scans" => [
-                                        [
-                                            "ScanDetail" => [
-                                                "Instructions" => "Shipment details manifested", 
-                                                "Scan" => "Manifested", 
-                                                "ScanDateTime" => "2024-07-03T11:05:29.663", 
-                                                "ScanType" => "UD", 
-                                                "ScannedLocation" => "Kirtinagar_PC (DELHI)", 
-                                                "StatusCode" => "X-UCI", 
-                                                "StatusDateTime" => "2024-07-03T11:05:29.663" 
-                                            ] 
-                                        ] 
-                                    ], 
-                        "SenderName" => "bde6d9-TheNutritionHut-do-cdp", 
-                        "Status" => [
-                                                "Instructions" => "Shipment details manifested", 
-                                                "RecievedBy" => "", 
-                                                "Status" => "Manifested", 
-                                                "StatusCode" => "X-UCI", 
-                                                "StatusDateTime" => "2024-07-03T11:05:29.663", 
-                                                "StatusLocation" => "Kirtinagar_PC (DELHI)", 
-                                                "StatusType" => "UD" 
-                                                ] 
-                        ] 
-                    ] 
-                ] 
-            ]; 
+            // $data = [
+            // "ShipmentData" => [
+            //         [
+            //             "Shipment" => [
+            //             "AWB" => "83750410000022", 
+            //             "CODAmount" => 0, 
+            //             "ChargedWeight" => null, 
+            //             "Consignee" => [
+            //                 "Address1" => [
+            //                 ], 
+            //                 "Address2" => [
+            //                     ], 
+            //                 "Address3" => "", 
+            //                 "City" => "New Delhi", 
+            //                 "Country" => "India", 
+            //                 "Name" => "John Doe", 
+            //                 "PinCode" => 110034, 
+            //                 "State" => "", 
+            //                 "Telephone1" => "", 
+            //                 "Telephone2" => "" 
+            //             ], 
+            //             "DeliveryDate" => null, 
+            //             "DestRecieveDate" => null, 
+            //             "Destination" => "New Delhi", 
+            //             "DispatchCount" => 0, 
+            //             "Ewaybill" => [
+            //                         ], 
+            //             "ExpectedDeliveryDate" => null, 
+            //             "Extras" => "", 
+            //             "FirstAttemptDate" => null, 
+            //             "InvoiceAmount" => 0, 
+            //             "OrderType" => "Pre-paid", 
+            //             "Origin" => "Kirtinagar_PC (DELHI)", 
+            //             "OriginRecieveDate" => null, 
+            //             "OutDestinationDate" => null, 
+            //             "PickUpDate" => "2024-07-03T11:05:29.366", 
+            //             "PickedupDate" => null, 
+            //             "PickupLocation" => "Delhi", 
+            //             "PromisedDeliveryDate" => null, 
+            //             "Quantity" => "", 
+            //             "RTOStartedDate" => null, 
+            //             "ReferenceNo" => "12345t", 
+            //             "ReturnPromisedDeliveryDate" => null, 
+            //             "ReturnedDate" => null, 
+            //             "ReverseInTransit" => false, 
+            //             "Scans" => [
+            //                             [
+            //                                 "ScanDetail" => [
+            //                                     "Instructions" => "Shipment details manifested", 
+            //                                     "Scan" => "Manifested", 
+            //                                     "ScanDateTime" => "2024-07-03T11:05:29.663", 
+            //                                     "ScanType" => "UD", 
+            //                                     "ScannedLocation" => "Kirtinagar_PC (DELHI)", 
+            //                                     "StatusCode" => "X-UCI", 
+            //                                     "StatusDateTime" => "2024-07-03T11:05:29.663" 
+            //                                 ] 
+            //                             ] 
+            //                         ], 
+            //             "SenderName" => "bde6d9-TheNutritionHut-do-cdp", 
+            //             "Status" => [
+            //                                     "Instructions" => "Shipment details manifested", 
+            //                                     "RecievedBy" => "", 
+            //                                     "Status" => "Manifested", 
+            //                                     "StatusCode" => "X-UCI", 
+            //                                     "StatusDateTime" => "2024-07-03T11:05:29.663", 
+            //                                     "StatusLocation" => "Kirtinagar_PC (DELHI)", 
+            //                                     "StatusType" => "UD" 
+            //                                     ] 
+            //             ] 
+            //         ] 
+            //     ] 
+            // ]; 
  
  
         }
