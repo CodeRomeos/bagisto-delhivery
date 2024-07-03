@@ -150,7 +150,7 @@
                 @endif
 
                 @if (isset($tracking_data) && !empty($tracking_data))
-                    @if ($tracking_data['Status'])
+                    @if (isset($tracking_data['Status']))
                         {{-- @if (isset($tracking_data['shipment_track']) && isset($tracking_data['shipment_track'][0]) && $tracking_data['shipment_track'][0]['current_status'])
                         <div>
                             Current Status - {{ $tracking_data['shipment_track'][0]['current_status'] }}
