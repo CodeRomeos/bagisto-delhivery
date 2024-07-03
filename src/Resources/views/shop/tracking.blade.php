@@ -78,33 +78,31 @@
                     </form>
                 </div>
                 <div class="expected-delivery">
-                    @if (isset($tracking_data['track_status']) && $tracking_data['track_status'] == 1)
+                    @if (isset($tracking_data['Status']))
                         @php
+
                             $current_status =
-                                isset($tracking_data['shipment_track']) && isset($tracking_data['shipment_track'][0])
-                                    ? $tracking_data['shipment_track'][0]['current_status']
+                                isset($tracking_data['Status']) && isset($tracking_data['Status'])
+                                    ? $tracking_data['Status']['Status']
                                     : false;
                             $has_delivered = $current_status == 'Delivered';
                             $etd =
-                                isset($tracking_data['etd']) && !empty($tracking_data['etd'])
-                                    ? $tracking_data['etd']
+                                isset($tracking_data['ExpectedDeliveryDate']) &&
+                                !empty($tracking_data['ExpectedDeliveryDate'])
+                                    ? $tracking_data['ExpectedDeliveryDate']
                                     : false;
-                            $courier_name =
-                                isset($tracking_data['shipment_track']) && isset($tracking_data['shipment_track'][0])
-                                    ? $tracking_data['shipment_track'][0]['courier_name']
-                                    : false;
+                            $courier_name = 'Delhivery';
                             $origin =
-                                isset($tracking_data['shipment_track']) && isset($tracking_data['shipment_track'][0])
-                                    ? $tracking_data['shipment_track'][0]['origin']
+                                isset($tracking_data['Origin']) && !empty($tracking_data['Origin'])
+                                    ? $tracking_data['Origin']
                                     : false;
                             $destination =
-                                isset($tracking_data['shipment_track']) && isset($tracking_data['shipment_track'][0])
-                                    ? $tracking_data['shipment_track'][0]['destination']
+                                isset($tracking_data['Destination']) && !empty($tracking_data['Destination'])
+                                    ? $tracking_data['Destination']
                                     : false;
-                            $delivered_date =
-                                isset($tracking_data['shipment_track']) && isset($tracking_data['shipment_track'][0])
-                                    ? $tracking_data['shipment_track'][0]['delivered_date']
-                                    : false;
+                            $delivered_date = isset($tracking_data['DeliveryDate'])
+                                ? !empty($tracking_data['DeliveryDate'])
+                                : false;
 
                         @endphp
                         <div class="{{ $has_delivered ? 'success' : 'pending' }}">
@@ -145,14 +143,7 @@
             <div>
 
                 @if (isset($tracking_data) && !empty($tracking_data))
-                    @if ($tracking_data['track_status'] == 0 && isset($tracking_data['error']) && !empty($tracking_data['error']))
-                        <div class="expected-delivery mt-4">
-                            <div class="error">
-                                {{ $tracking_data['error'] }}
-                            </div>
-                        </div>
-                    @endif
-                    @if ($tracking_data['track_status'] == 1)
+                    @if ($tracking_data['Status'])
                         {{-- @if (isset($tracking_data['shipment_track']) && isset($tracking_data['shipment_track'][0]) && $tracking_data['shipment_track'][0]['current_status'])
                         <div>
                             Current Status - {{ $tracking_data['shipment_track'][0]['current_status'] }}
@@ -163,7 +154,10 @@
                         <br />
 
                         <ol class="relative border-s border-gray-200 dark:border-gray-700">
-                            @foreach ($tracking_data['shipment_track_activities'] as $key => $activity)
+                            @foreach ($tracking_data['Scans'] as $key => $activity)
+                                @php
+                                    $activity = $activity['ScanDetail'];
+                                @endphp
                                 <li class="tracking-item">
                                     <div class="absolute" style="left: -7px; top: 0">
 
@@ -171,14 +165,16 @@
                                             style="background-color: rgb(219 234 254)">
                                             <span
                                                 class="text-sm icon-calendar inline-block text-[24px] cursor-pointer"></span>
-                                            {{ $activity['date'] }}
+                                            {{ $activity['ScanDateTime'] }}
                                         </time>
                                     </div>
                                     <div style="margin-bottom: 28px; margin-top: 18px">
                                         <h3 class="text-lg mb-2 text-gray-900 dark:text-white">
-                                            {{ $activity['activity'] }}</h3>
+                                            {{ $activity['Scan'] }}</h3>
+                                        <p class="text-lg mb-2 text-gray-900 dark:text-white">
+                                            {{ $activity['Instructions'] }}</p>
                                         <p class="text-base font-normal text-gray-500 dark:text-gray-400">Location -
-                                            {{ $activity['location'] }}</p>
+                                            {{ $activity['ScannedLocation'] }}</p>
                                     </div>
                                 </li>
                             @endforeach

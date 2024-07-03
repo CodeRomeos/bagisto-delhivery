@@ -35,7 +35,7 @@ class Delhivery
         $response = Http::withHeaders([
             'Authorization' => 'Token ' . $token
         ])->get($this->baseUrl . '/packages/json/?waybill=' . $awb . '&token=' . $token);
-        dd($response);
+
         if ($response->failed()) {
             return false;
         }
