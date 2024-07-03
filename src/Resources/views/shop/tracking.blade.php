@@ -142,6 +142,13 @@
             </div>
             <div>
 
+                @if (!$tracking_data)
+                    <br />
+                    <div class="expected-delivery">
+                        <div class="error">No tracking found</div>
+                    </div>
+                @endif
+
                 @if (isset($tracking_data) && !empty($tracking_data))
                     @if ($tracking_data['Status'])
                         {{-- @if (isset($tracking_data['shipment_track']) && isset($tracking_data['shipment_track'][0]) && $tracking_data['shipment_track'][0]['current_status'])
