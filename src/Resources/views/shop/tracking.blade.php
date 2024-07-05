@@ -142,7 +142,7 @@
             </div>
             <div>
 
-                @if (!$tracking_data)
+                @if (!$tracking_data || ($tracking_data && $tracking_data['Success'] == false))
                     <br />
                     <div class="expected-delivery">
                         <div class="error">No tracking found</div>
