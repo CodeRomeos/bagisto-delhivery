@@ -58,7 +58,7 @@
     <x-slot:title>
         Delhivery Tracking | {{ config('app.name') }}
     </x-slot>
-
+    @dd($tracking_data)
     <div class="main" style="padding-bottom: 300px">
         <div class="container mt-[30px] px-[60px] max-lg:px-[30px]">
             <div class="two-col">
@@ -110,7 +110,8 @@
                                 <div class="expected-delivery-date">
                                     Estimated Delivery Time
                                 </div>
-                                <time style="font-size: 1.5rem">{{ $tracking_data['etd'] ?? '' }}</time><br />
+                                <time style="font-size: 1.5rem">{{ $etd }}</time><br />
+                                {{-- <time style="font-size: 1.5rem">{{ $tracking_data['ExpectedDeliveryDate'] ?? '' }}</time><br /> --}}
                             @endif
                             <p>
                                 Current Status - <strong>{{ $current_status }}</strong>
