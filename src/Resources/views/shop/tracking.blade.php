@@ -110,7 +110,7 @@
                                 <div class="expected-delivery-date">
                                     Estimated Delivery Time
                                 </div>
-                                <time style="font-size: 1.5rem">{{ $tracking_data['etd'] }}</time><br />
+                                <time style="font-size: 1.5rem">{{ $tracking_data['etd'] ?? '' }}</time><br />
                             @endif
                             <p>
                                 Current Status - <strong>{{ $current_status }}</strong>
