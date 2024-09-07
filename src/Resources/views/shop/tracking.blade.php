@@ -58,7 +58,6 @@
     <x-slot:title>
         Delhivery Tracking | {{ config('app.name') }}
     </x-slot>
-    @dd($tracking_data)
     <div class="main" style="padding-bottom: 300px">
         <div class="container mt-[30px] px-[60px] max-lg:px-[30px]">
             <div class="two-col">
